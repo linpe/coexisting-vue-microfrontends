@@ -1,13 +1,23 @@
 <template>
   <div id="app2">
-    App 2 is working
-    <p>comment me on and off to see HMR</p>
-    <router-view></router-view>
+    <Icon />
   </div>
 </template>
 
+<script>
+import { Component, Vue } from 'vue-property-decorator'
+import Icon from './Icon.vue'
+
+@Component({
+  components: {
+    Icon,
+  }
+})
+export default class App extends Vue {}
+</script>
+
 <style>
-#app2 {
+#app1 {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
