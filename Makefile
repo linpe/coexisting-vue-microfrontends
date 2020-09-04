@@ -1,33 +1,5 @@
-DEFAULT_GOAL := help
+install:
+	./node_modules/.bin/concurrently --raw "cd root-html-file && npm i" "cd app1 && npm i" "cd app2 && npm i" "cd navbar && npm i"
 
-port := 5000
-
-.PHONY: help
-help:
-	@echo
-	@echo Manage micro-frontends with single-spa
-	@echo
-	@fgrep "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/:.*## / - /'
-	@echo
-
-.PHONY: install
-install: ## Install all dependencies
-	@pushd ./root-html-file >/dev/null && (npm install &) && popd >/dev/null
-	@pushd ./app1 >/dev/null && (npm install &) && popd >/dev/null
-	@pushd ./app2 >/dev/null && (npm install &) && popd >/dev/null
-	@pushd ./navbar >/dev/null && (npm install &) && popd >/dev/null
-
-.PHONY: clean
-clean: ## Clean all endpoints
-	@rm */node_modules -rf
-
-.PHONY: start
-start: ## Start all endpoints
-	@pushd ./root-html-file >/dev/null && (npx serve -s -l $(port) &) && popd >/dev/null
-	@pushd ./app1 >/dev/null && (npx vue-cli-service serve --port 8081 &) && popd >/dev/null
-	@pushd ./app2 >/dev/null && (npx vue-cli-service serve --port 8082 &) && popd >/dev/null
-	@pushd ./navbar >/dev/null && (npx vue-cli-service serve --port 8080 &) && popd >/dev/null
-
-.PHONY: stop
-stop: ## Stop all endpoints
-	@pkill -2 node
+start:
+	./node_modules/.bin/concurrently --raw "cd root-html-file && npm run serve" "cd app1 && npm run serve" "cd app2 && npm run serve" "cd navbar && npm run serve"

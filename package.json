@@ -1,0 +1,22 @@
+{
+  "name": "coexisting-vue-microfrontends",
+  "version": "1.0.0",
+  "description": "The newer example demonstrating Vue Microfrontends can be found at https://github.com/vue-microfrontends and https://vue.microfrontends.app. That example better reflects the microfrontends architecture and is encouraged to use.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linpe/coexisting-vue-microfrontends.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/linpe/coexisting-vue-microfrontends/issues"
+  },
+  "homepage": "https://github.com/linpe/coexisting-vue-microfrontends#readme",
+  "dependencies": {
+    "concurrently": "^5.3.0"
+  }
+}
